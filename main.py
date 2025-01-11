@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide")
 col1,col2=st.columns(2)
@@ -13,3 +14,13 @@ with col2:
     st.info(content)
 infos="Below are the links to some of the apps I've built and the ways to contact me "
 st.write(infos)
+
+col3,col4=st.columns(2)
+df=pd.read_csv('data.csv',sep=";")
+with col3:
+    for i,n in df[:int(len(df)/2)].iterrows():
+        st.header(n['title'])
+
+with col4:
+    for i,n in df[int(len(df)/2):].iterrows():
+        st.header(n['title'])
