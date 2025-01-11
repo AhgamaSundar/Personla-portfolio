@@ -20,7 +20,13 @@ df=pd.read_csv('data.csv',sep=";")
 with col3:
     for i,n in df[:int(len(df)/2)].iterrows():
         st.header(n['title'])
+        st.write(n["description"])
+        st.image("images/"+n["image"])
+        st.write(f"[Source]({n["url"]})")
 
 with col4:
     for i,n in df[int(len(df)/2):].iterrows():
         st.header(n['title'])
+        st.write(n["description"])
+        st.image("images/"+n["image"])
+        st.write(f"[Source]({n["url"]})")
